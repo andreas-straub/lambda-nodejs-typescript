@@ -1,0 +1,60 @@
+service: lambda-nodejs-typescript
+
+frameworkVersion: '>=1.1.0 <2.0.0'
+
+plugins:
+  - serverless-webpack
+  - serverless-pseudo-parameters
+  - serverless-stage-manager
+  - serverless-plugin-tracing
+  - serverless-offline
+
+custom:
+  stages:
+    - local
+    - dev
+    - test
+    - prod
+  awsXrayEnabled:
+    local: false
+    dev: true
+    test: true
+    prod: true
+  logLevel:
+    local: debug
+    dev: debug
+    test: info
+    prod: info
+  webpack:
+    includeModules: true
+
+provider:
+  name: aws
+  region: eu-central-1
+  stage: ${opt:stage, 'local'}
+  runtime: nodejs8.10
+  memorySize: 512
+  timeout: 5
+  tracing: ${self:custom.awsXrayEnabled.${self:provider.stage}} # enable tracing
+  environment:
+    LOG_LEVEL: ${self:custom.logLevel.${self:provider.stage}}
+    AWS_XRAY_ENABLED: ${self:custom.awsXrayEnabled.${self:provider.stage}}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - xray:PutTraceSegments
+        - xray:PutTelemetryRecords
+      Resource:
+        - '*'
+functions:
+  index:
+    handler: src/index.indexHandler
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+
+resources:
+  # externalize Resources to separated file to get support by IDE for cloudformation
+  - ${file(./serverless-resources.yml)}

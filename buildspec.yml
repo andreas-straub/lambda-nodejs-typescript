@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing node packages...
+      - npm install
+      - npm install -g serverless
+  build:
+    commands:
+      - echo Building...
+      - npm run test
+      - npm run build
+  post_build:
+    commands:
+      - echo Deploying...
+      - chmod +x bin/assumeRole.sh
+      - eval $(bin/assumeRole.sh ${DEPLOYMENT-ROLE} ${AWS_ACCOUNT_ID})
+      - npm run deploy-${DEPLOY_STAGE}

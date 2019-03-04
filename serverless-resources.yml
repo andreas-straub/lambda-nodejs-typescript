@@ -1,0 +1,4 @@
+# Resources used in serverless.yml. Warning: You cannot deploy this template to cloudformation directly.
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Resources for service
+Resources:

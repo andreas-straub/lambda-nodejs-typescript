@@ -1,0 +1,25 @@
+# Serverless directories
+/.serverless
+
+# Dependencies
+/node_modules
+
+# Reports
+/mochawesome-report
+
+# Idea
+/.idea
+
+# terraform
+**/.terraform
+**/*.plan
+
+# Eclipse
+/.project
+
+/.webpack
+/.nyc_output
+
+# System Files
+.DS_Store
+Thumbs.db
