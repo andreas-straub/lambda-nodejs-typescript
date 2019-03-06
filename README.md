@@ -1,3 +1,5 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/andreas-straub/lambda-nodejs-typescript/badge.svg?targetFile=package.json)](https://snyk.io/test/github/andreas-straub/lambda-nodejs-typescript?targetFile=package.json)
+
 ## Serverless AWS Lambda, Nodejs and TypeScript Boilerplate
 
 This project contains boilerplate code for projects based on AWS lambda functions with Nodejs runtime and TypeScript.
