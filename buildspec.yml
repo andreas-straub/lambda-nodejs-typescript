@@ -14,6 +14,6 @@ phases:
   post_build:
     commands:
       - echo Deploying...
-      - chmod +x bin/assumeRole.sh
-      - eval $(bin/assumeRole.sh ${DEPLOYMENT-ROLE} ${AWS_ACCOUNT_ID})
+      - chmod +x bin/iam-assume-role.sh
+      - eval $(bin/iam-assume-role.sh ${DEPLOYMENT-ROLE} ${AWS_ACCOUNT_ID})
       - npm run deploy-${DEPLOY_STAGE}
