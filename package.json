@@ -4,6 +4,10 @@
   "description": "Generic Boilerplate for AWS Lambda with Nodejs and TypeScript",
   "author": "Andreas Straub",
   "main": "handler.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreas-straub/lambda-nodejs-typescript.git"
+  },
   "scripts": {
     "start": "serverless offline start --location .webpack/service",
     "test": "mocha --timeout 10000 --require ts-node/register --reporter mochawesome \"test/**/*.spec.ts\"",
@@ -72,5 +76,6 @@
     "typescript": "^2.9.2",
     "webpack": "^4.33.0",
     "webpack-node-externals": "^1.7.2"
-  }
+  },
+  "license": "Apache-2.0"
 }
