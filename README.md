@@ -23,12 +23,73 @@ Run `serverless invoke local -f [functionName]`.
 
 ## Run API locally
 
-In order to run your serverless lambdas locally, just start them with `sls offline`
+In order to run your serverless lambdas locally, just start them with `npm run start`
 (see: [https://github.com/dherault/serverless-offline](https://github.com/dherault/serverless-offline)).
 
 ### After start:
 
 - Visit [http://localhost:3000/] to list the available routes.
+
+## Linting / Formating
+
+* Use `npm run lint` or `npm run lint-fix` to run a linter checks.
+* Use `npm run format` to format the source code
+
+## Test
+
+`mocha` and `chai` libs with `mochaawesome`-reporter were used for tests. Tests are defined inside `/test` folder.  
+Execute `npm run test` to run all tests.
+ 
+After execution you can check results by calling `/mochawesome-report/mochawesome.html` in your default browser. 
+It should looks like:
+![Infrastructure Overview](docs/test-results.png)
+
+
+## Build
+
+Run `npm run build` to build an package serverless project.
+
+## Deploy
+
+Run `npm run deploy-{STAGE}` to deploy the application to provided stage. Where `{STAGE}` ist one of `local`, `dev`, `test` or `prod`.
+The list of available stages can be configured in `serverless.yml` in `custom.stages` property. The command will deploy
+the current application to your AWS account. You should first configure you AWS credentials properly!
+(see https://serverless.com/framework/docs/providers/aws/guide/credentials/ for more details)
+
+Alternatively yo can run `serverless deploy -s {STAGE}`
+
+After execution your will find a URL to your AWS ApiGateway Endpoint. It should looks like this:
+```bash
+Serverless: Stack update finished...
+Service Information
+service: lambda-nodejs-typescript
+stage: dev
+region: eu-central-1
+stack: lambda-nodejs-typescript-dev
+resources: 10
+api keys:
+  None
+endpoints:
+  GET - https://l5xdlwcwcl.execute-api.eu-central-1.amazonaws.com/dev/
+functions:
+  index: lambda-nodejs-typescript-dev-index
+layers:
+  None
+```
+
+## Undeploy (remove from AWS)
+
+To remove the deployed infrastructure from AWS just run `serverless remove -s {STAGE}` 
+
+After execution you should get following output:
+```bash
+Serverless: Getting all objects in S3 bucket...
+Serverless: Removing objects in S3 bucket...
+Serverless: Removing Stack...
+Serverless: Checking Stack removal progress...
+...................
+Serverless: Stack removal finished...
+```
 
 ## Contact
 

@@ -32,7 +32,7 @@ provider:
   name: aws
   region: eu-central-1
   stage: ${opt:stage, 'local'}
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   memorySize: 512
   timeout: 5
   tracing: ${self:custom.awsXrayEnabled.${self:provider.stage}} # enable tracing

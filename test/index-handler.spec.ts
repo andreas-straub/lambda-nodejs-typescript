@@ -12,3 +12,4 @@ describe('newsletter-get-handler', () => {
     expect(response.body).to.equal(expectedBody);
   });
 });
+
