@@ -36,14 +36,14 @@
     ]
   },
   "dependencies": {
-    "aws-sdk": "^2.488.0",
     "aws-lambda": "^0.1.2",
+    "aws-sdk": "^2.493.0",
     "aws-xray-sdk": "^2.3.3",
     "source-map-support": "^0.5.12",
     "tracer": "^0.9.8"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.27",
+    "@types/aws-lambda": "^8.10.28",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.7",
     "@types/node": "^8.10.50",
@@ -54,7 +54,7 @@
     "mocha": "^5.2.0",
     "mochawesome": "^3.1.2",
     "prettier": "^1.18.2",
-    "serverless": "^1.46.1",
+    "serverless": "^1.47.0",
     "serverless-http-invoker": "^0.8.6",
     "serverless-offline": "^4.10.6",
     "serverless-plugin-tracing": "^2.0.0",
@@ -65,8 +65,8 @@
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.2",
-    "webpack": "^4.35.2",
+    "typescript": "^3.5.3",
+    "webpack": "^4.35.3",
     "webpack-node-externals": "^1.7.2"
   },
   "license": "Apache-2.0"
