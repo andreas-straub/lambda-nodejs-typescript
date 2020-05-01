@@ -17,7 +17,9 @@
     "deploy-prod": "serverless deploy -s prod",
     "lint": "tslint --project tsconfig.lint.json",
     "lint-fix": "tslint --project tsconfig.lint.json --fix",
-    "format": "prettier \"**/*.{ts,ts,js,json,md}\" --write"
+    "format": "prettier \"**/*.{ts,ts,js,json,md}\" --write",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -40,7 +42,8 @@
     "aws-sdk": "^2.493.0",
     "aws-xray-sdk": "^2.3.3",
     "source-map-support": "^0.5.12",
-    "tracer": "^0.9.8"
+    "tracer": "^0.9.8",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.28",
@@ -69,5 +72,6 @@
     "webpack": "^4.35.3",
     "webpack-node-externals": "^1.7.2"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "snyk": true
 }
